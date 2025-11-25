@@ -72,7 +72,7 @@ VALUES
 ('Sedan',   'QWE444', '3VWFE21C04M000999', 'BMW',      '320i',     2017, 'rented',    55000, 'Kuala Lumpur'),
 ('Hatchback','RTY555','2G1WF55KX89345670', 'Perodua',  'Axia',     2020, 'available', 30000, 'Sabah'),
 ('SUV',     'ZXC666', '1HGCG1659WA035678', 'Mazda',    'CX-5',     2019, 'maintenance',42000, 'Sarawak'),
-('Sedan',   'MNB777', '2HGFB2F50DH123456', 'Mercedes', 'C200',     2021, 'available', 21000, 'Kuala Lumpur');
+('Sedan',   'MNB777', '2HGFB2F50DH123456', 'Mercedes', 'C200',     2021, 'rented', 21000, 'Kuala Lumpur');
 select * from vehicles;
 
 INSERT INTO customers (name, email, phone_no, license_no, address)
@@ -94,14 +94,13 @@ VALUES
 ('2025-01-01', '2025-01-03', 'KL TRX', 'KL TRX', 'completed', 1, 2),
 ('2025-01-04', '2025-01-06', 'Selangor Sunway Pyramid', 'Selangor Sunway Pyramid', 'completed', 2, 1),
 ('2025-02-01', '2025-02-05', 'Penang Airport', 'KL Sentral', 'cancelled', 3, 3),
-('2025-02-10', '2025-02-12', 'Johor Mid Valley Southkey', 'KLIA Terminal 1', 'booked', 4, 4),
+('2025-02-10', '2025-02-12', 'Johor Mid Valley Southkey', 'KLIA Terminal 1', 'completed', 4, 4),
 ('2025-03-15', '2025-03-17', 'KL Pavilion', 'KL Pavilion', 'completed', 5, 5),
-('2025-03-20', '2025-03-22', 'Ipoh Amanjaya Terminal', 'Penang Queensbay Mall', 'booked', 6, 6),
+('2025-03-20', '2025-03-22', 'Ipoh Amanjaya Terminal', 'Penang Queensbay Mall', 'cancelled', 6, 6),
 ('2025-04-01', '2025-04-04', 'KL KLCC', 'Sarawak Kuching Waterfront', 'completed', 7, 7),
 ('2025-04-05', '2025-04-10', 'KL Bukit Bintang', 'KL Bukit Bintang', 'cancelled', 8, 8),
 ('2025-04-12', '2025-04-13', 'Sabah KKIA Airport', 'Sabah KKIA Airport', 'completed', 9, 9),
 ('2025-04-15', '2025-04-18', 'KL IOI City Mall', 'KL IOI City Mall', 'booked', 10, 10);
-
 select * from bookings;
 
 UPDATE bookings SET booking_date = '2024-12-20 10:15:00' WHERE booking_id = 1;
@@ -121,15 +120,65 @@ INSERT INTO payments (amount, method, payment_date, payment_status, deposit_amou
 VALUES
 (300.00, 'Credit Card', '2025-01-01', 'paid',     100.00, 'refunded',   '2025-01-03', 1),
 (250.00, 'Cash',        '2025-01-04', 'paid',     80.00,  'refunded',   '2025-01-06', 2),
-(500.00, 'TNG',         '2025-02-01', 'pending',  150.00, 'processing', NULL,         3),
+(500.00, 'TNG',         NULL, 'pending',  150.00, 'processing', NULL,         3),
 (280.00, 'Credit Card', '2025-02-10', 'paid',     90.00,  'forfeited',  NULL,         4),
 (400.00, 'Cash',        '2025-03-15', 'paid',     120.00, 'refunded',   '2025-03-17', 5),
-(350.00, 'TNG',         '2025-03-20', 'pending',  110.00, 'processing', NULL,         6),
+(350.00, 'TNG',         NULL, 'pending',  110.00, 'processing', NULL,         6),
 (600.00, 'Credit Card', '2025-04-01', 'paid',     200.00, 'refunded',   '2025-04-04', 7),
-(260.00, 'Cash',        '2025-04-05', 'paid',     85.00,  'refunded',   '2025-04-10', 8),
+(260.00, 'Cash',        '2025-04-05', 'refunded',     85.00,  NULL,   '2025-04-10', 8),
 (500.00, 'TNG',         '2025-04-12', 'paid',     170.00, 'refunded',   '2025-04-13', 9),
-(320.00, 'Credit Card', '2025-04-15', 'pending',  95.00,  'processing', NULL,         10);
+(320.00, 'Credit Card', NULL, 'pending',  95.00,  'processing', NULL,         10);
 select * from payments;
+
+-- Updates with conditions
+UPDATE payments
+SET method = 'Credit Card',
+    payment_date = '2025-04-12',
+    payment_status = 'paid'
+WHERE booking_id = 10;
+
+UPDATE bookings
+SET booking_status = 'completed'
+WHERE booking_id = 10;
+
+UPDATE payments
+SET deposit_refund_status = 'refunded',
+    deposit_refund_date = '2025-04-19'
+WHERE booking_id = 10;
+
+UPDATE vehicles
+SET vehicle_status = 'available'
+WHERE vehicle_id = (
+    SELECT vehicle_id
+    FROM bookings
+    WHERE booking_id = 10
+);
+
+-- Delete with conditions
+-- Delete payments linked to cancelled bookings before 2025-03-01
+DELETE FROM payments
+WHERE booking_id IN (
+    SELECT booking_id
+    FROM (
+        SELECT booking_id
+        FROM bookings
+        WHERE booking_status = 'cancelled'
+          AND pickup_date < '2025-03-01'
+    ) AS temp_bookings
+);
+
+-- Delete cancelled bookings before 2025-03-01
+DELETE FROM bookings
+WHERE booking_id IN (
+    SELECT booking_id
+    FROM (
+        SELECT booking_id
+        FROM bookings
+        WHERE booking_status = 'cancelled'
+          AND pickup_date < '2025-03-01'
+    ) AS temp_bookings
+);
+
 
 
 
