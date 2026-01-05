@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601a"
+  },
+  "vehicle_id": 1,
+  "class": "Sedan",
+  "plate_no": "ABC123",
+  "vin": "1HGCM82633A004352",
+  "make": "Toyota",
+  "model": "Vios",
+  "year": 2020,
+  "vehicle_status": "available",
+  "odometer_km": 25000,
+  "vehicle_location": "Kuala Lumpur"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601b"
+  },
+  "vehicle_id": 2,
+  "class": "SUV",
+  "plate_no": "BDF456",
+  "vin": "2HGFA16578H311789",
+  "make": "Honda",
+  "model": "CR-V",
+  "year": 2019,
+  "vehicle_status": "rented",
+  "odometer_km": 40000,
+  "vehicle_location": "Selangor"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601c"
+  },
+  "vehicle_id": 3,
+  "class": "Hatchback",
+  "plate_no": "GHT789",
+  "vin": "3N1BC13E58L530294",
+  "make": "Perodua",
+  "model": "Myvi",
+  "year": 2022,
+  "vehicle_status": "available",
+  "odometer_km": 12000,
+  "vehicle_location": "Penang"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601d"
+  },
+  "vehicle_id": 4,
+  "class": "Sedan",
+  "plate_no": "JKL111",
+  "vin": "5YJ3E1EA7JF000111",
+  "make": "Honda",
+  "model": "City",
+  "year": 2021,
+  "vehicle_status": "maintenance",
+  "odometer_km": 31000,
+  "vehicle_location": "Johor Bahru"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601e"
+  },
+  "vehicle_id": 5,
+  "class": "Van",
+  "plate_no": "POI222",
+  "vin": "4T1BF1FK5EU365555",
+  "make": "Toyota",
+  "model": "Hiace",
+  "year": 2018,
+  "vehicle_status": "available",
+  "odometer_km": 66000,
+  "vehicle_location": "Melaka"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f601f"
+  },
+  "vehicle_id": 6,
+  "class": "SUV",
+  "plate_no": "TYU333",
+  "vin": "1FTRX18L4XKA34567",
+  "make": "Proton",
+  "model": "X70",
+  "year": 2023,
+  "vehicle_status": "available",
+  "odometer_km": 8000,
+  "vehicle_location": "Ipoh"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f6020"
+  },
+  "vehicle_id": 7,
+  "class": "Sedan",
+  "plate_no": "QWE444",
+  "vin": "3VWFE21C04M000999",
+  "make": "BMW",
+  "model": "320i",
+  "year": 2017,
+  "vehicle_status": "rented",
+  "odometer_km": 55000,
+  "vehicle_location": "Kuala Lumpur"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f6021"
+  },
+  "vehicle_id": 8,
+  "class": "Hatchback",
+  "plate_no": "RTY555",
+  "vin": "2G1WF55KX89345670",
+  "make": "Perodua",
+  "model": "Axia",
+  "year": 2020,
+  "vehicle_status": "available",
+  "odometer_km": 30000,
+  "vehicle_location": "Sabah"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f6022"
+  },
+  "vehicle_id": 9,
+  "class": "SUV",
+  "plate_no": "ZXC666",
+  "vin": "1HGCG1659WA035678",
+  "make": "Mazda",
+  "model": "CX-5",
+  "year": 2019,
+  "vehicle_status": "maintenance",
+  "odometer_km": 42000,
+  "vehicle_location": "Sarawak"
+},
+{
+  "_id": {
+    "$oid": "695bb259f224b89ed96f6023"
+  },
+  "vehicle_id": 10,
+  "class": "Sedan",
+  "plate_no": "MNB777",
+  "vin": "2HGFB2F50DH123456",
+  "make": "Mercedes",
+  "model": "C200",
+  "year": 2021,
+  "vehicle_status": "rented",
+  "odometer_km": 21000,
+  "vehicle_location": "Kuala Lumpur"
+}]

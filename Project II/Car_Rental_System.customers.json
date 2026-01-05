@@ -1,0 +1,135 @@
+[{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f600e"
+  },
+  "customer_id": 1,
+  "name": "Nur Aisyah Binti Ahmad",
+  "email": "aisyah.ahmad@example.com",
+  "phone_no": [
+    "0123456789",
+    "0176543210"
+  ],
+  "license_no": "L1234567",
+  "address": "Selangor"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f600f"
+  },
+  "customer_id": 2,
+  "name": "Lim Wei Jian",
+  "email": "weijian.lim@example.com",
+  "phone_no": [
+    "0134567890"
+  ],
+  "license_no": "L9876543",
+  "address": "Kuala Lumpur"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6010"
+  },
+  "customer_id": 3,
+  "name": "Jamie A/L Arjun Kumar",
+  "email": "arjun.kumar@example.com",
+  "phone_no": [
+    "0145678901",
+    "0193344556"
+  ],
+  "license_no": "L4567891",
+  "address": "Penang"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6011"
+  },
+  "customer_id": 4,
+  "name": "Siti Nur Farhana",
+  "email": "farhana.siti@example.com",
+  "phone_no": [
+    "0156789012"
+  ],
+  "license_no": "L2222333",
+  "address": "Johor"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6012"
+  },
+  "customer_id": 5,
+  "name": "Tan Mei Ling",
+  "email": "meiling.tan@example.com",
+  "phone_no": [
+    "0167890123",
+    "0189988776"
+  ],
+  "license_no": "L4444555",
+  "address": "Melaka"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6013"
+  },
+  "customer_id": 6,
+  "name": "Muhammad Iqbal Bin Rashid",
+  "email": "iqbal.rashid@example.com",
+  "phone_no": [
+    "0178901234"
+  ],
+  "license_no": "L6666777",
+  "address": "Perak"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6014"
+  },
+  "customer_id": 7,
+  "name": "Kavitha A/P Mani",
+  "email": "kavitha.mani@example.com",
+  "phone_no": [
+    "0189012345",
+    "0112233445"
+  ],
+  "license_no": "L1111222",
+  "address": "Selangor"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6015"
+  },
+  "customer_id": 8,
+  "name": "Chong Kai Wen",
+  "email": "kaiwen.chong@example.com",
+  "phone_no": [
+    "0190123456"
+  ],
+  "license_no": "L5555666",
+  "address": "Sabah"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6016"
+  },
+  "customer_id": 9,
+  "name": "Harish A/L Rajendran",
+  "email": "harish.raj@example.com",
+  "phone_no": [
+    "0112345678",
+    "0165566778"
+  ],
+  "license_no": "L3333444",
+  "address": "Sarawak"
+},
+{
+  "_id": {
+    "$oid": "695baf4ff224b89ed96f6017"
+  },
+  "customer_id": 10,
+  "name": "Nurul Huda Binti Zulkifli",
+  "email": "nurul.huda@example.com",
+  "phone_no": [
+    "0198765432"
+  ],
+  "license_no": "L8888999",
+  "address": "Kelantan"
+}]
