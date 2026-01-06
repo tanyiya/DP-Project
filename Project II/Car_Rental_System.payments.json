@@ -6,13 +6,17 @@
   "booking_id": 1,
   "amount": 300,
   "method": "Credit Card",
-  "payment_date": "2025-01-01T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-01-01T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 100,
     "refund": {
       "status": "refunded",
-      "date": "2025-01-03T00:00:00Z"
+      "date": {
+        "$date": "2025-01-03T00:00:00.000Z"
+      }
     }
   }
 },
@@ -24,13 +28,17 @@
   "booking_id": 2,
   "amount": 250,
   "method": "Cash",
-  "payment_date": "2025-01-04T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-01-04T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 80,
     "refund": {
       "status": "refunded",
-      "date": "2025-01-06T00:00:00Z"
+      "date": {
+        "$date": "2025-01-06T00:00:00.000Z"
+      }
     }
   }
 },
@@ -42,7 +50,9 @@
   "booking_id": 3,
   "amount": 500,
   "method": "TNG",
-  "payment_date": "2025-01-04T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-01-04T00:00:00.000Z"
+  },
   "payment_status": "pending",
   "deposit": {
     "amount": 150,
@@ -60,7 +70,9 @@
   "booking_id": 4,
   "amount": 280,
   "method": "Credit Card",
-  "payment_date": "2025-02-10T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-02-10T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 90,
@@ -78,13 +90,17 @@
   "booking_id": 5,
   "amount": 400,
   "method": "Cash",
-  "payment_date": "2025-03-15T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-03-15T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 120,
     "refund": {
       "status": "refunded",
-      "date": "2025-03-17T00:00:00Z"
+      "date": {
+        "$date": "2025-03-17T00:00:00.000Z"
+      }
     }
   }
 },
@@ -96,7 +112,9 @@
   "booking_id": 6,
   "amount": 350,
   "method": "TNG",
-  "payment_date": "2025-03-15T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-03-15T00:00:00.000Z"
+  },
   "payment_status": "pending",
   "deposit": {
     "amount": 110,
@@ -114,13 +132,17 @@
   "booking_id": 7,
   "amount": 600,
   "method": "Credit Card",
-  "payment_date": "2025-04-01T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-04-01T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 200,
     "refund": {
       "status": "refunded",
-      "date": "2025-04-04T00:00:00Z"
+      "date": {
+        "$date": "2025-04-04T00:00:00.000Z"
+      }
     }
   }
 },
@@ -132,13 +154,17 @@
   "booking_id": 8,
   "amount": 260,
   "method": "Cash",
-  "payment_date": "2025-04-05T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-04-05T00:00:00.000Z"
+  },
   "payment_status": "refunded",
   "deposit": {
     "amount": 85,
     "refund": {
       "status": null,
-      "date": "2025-04-10T00:00:00Z"
+      "date": {
+        "$date": "2025-04-10T00:00:00.000Z"
+      }
     }
   }
 },
@@ -150,13 +176,17 @@
   "booking_id": 9,
   "amount": 500,
   "method": "TNG",
-  "payment_date": "2025-04-12T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-04-12T00:00:00.000Z"
+  },
   "payment_status": "paid",
   "deposit": {
     "amount": 170,
     "refund": {
       "status": "refunded",
-      "date": "2025-04-13T00:00:00Z"
+      "date": {
+        "$date": "2025-04-13T00:00:00.000Z"
+      }
     }
   }
 },
@@ -168,7 +198,9 @@
   "booking_id": 10,
   "amount": 320,
   "method": "Credit Card",
-  "payment_date": "2025-04-12T00:00:00Z",
+  "payment_date": {
+    "$date": "2025-04-12T00:00:00.000Z"
+  },
   "payment_status": "pending",
   "deposit": {
     "amount": 95,
