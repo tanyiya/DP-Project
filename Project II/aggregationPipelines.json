@@ -1,0 +1,107 @@
+// Total revenue for completed bookings grouped by payment method
+db.payments.aggregate([
+    {$match: {payment_status: "paid"}},
+    {$group: {_id: "$method", totalSales: {$sum: "$amount"}}}
+])
+
+// Total amount by payment_status filtered by date
+db.payments.aggregate([
+    {$match: {payment_date: {$gte: ISODate("2025-04-01T00:00:00Z"), $lt: ISODate("2025-05-01T00:00:00Z")}}},
+    {$group: {_id: "$payment_status", totalSales: {$sum: "$amount"}}}
+])
+
+// Pending & refunded payments
+db.payments.aggregate([
+    {$match: {payment_status: {$ne: "paid"}}},
+    {$lookup: {
+        from: "bookings",
+        localField: "booking_id",
+        foreignField: "booking_id",
+        as: "booking"
+    }},
+    {$unwind: "$booking"}
+])
+
+// (With Project)
+db.payments.aggregate([
+    {$match: {payment_status: {$ne: "paid"}}},
+    {$lookup: {
+        from: "bookings",
+        localField: "booking_id",
+        foreignField: "booking_id",
+        as: "booking"
+    }},
+    {$unwind: "$booking"},
+    {$project: {
+        _id: 0,
+        booking_id: 1,
+        payment_id: 1,
+        payment_status: 1,
+        method: 1,
+        amount: 1,
+        payment_date: 1,
+        booking_status: "$booking.booking_status",
+        pickup_date: "$booking.pickup.date",
+        return_date: "$booking.return.date"
+    }}
+])
+
+// Deposit refund status
+db.payments.aggregate({
+    $group: {_id: "$deposit.refund.status", totalAmount: {$sum: "$deposit.amount"}, count: {$sum: 1}}
+})
+
+// Find customers with forfeited deposits
+db.payments.aggregate([
+    {$match: {"deposit.refund.status": "forfeited"}},
+    {$lookup: {
+        from: "bookings",
+        localField: "booking_id",
+        foreignField: "booking_id",
+        as: "booking"
+    }},
+    {$unwind: "$booking"},
+    {$lookup: {
+        from: "customers",
+        localField: "booking.customer_id",
+        foreignField: "customer_id",
+        as: "customer"
+    }},
+    {$unwind: "$customer"},
+    {$project: {
+        _id: 0,
+        payment_id: 1,
+        booking_id: 1,
+        payment_date: 1,
+        payment_status: 1,
+        deposit_amount: "$deposit.amount",
+        deposit_refund_status: "$deposit.refund.status",
+        booking_status: "$booking.booking_status",
+        pickup_date: "$booking.pickup.date",
+        return_date: "$booking.return.date",
+        customer_id: "$customer.customer_id",
+        customer_name: "$customer.name",
+        customer_address: "$customer.address"
+    }}
+])
+
+// Most rented vehicle class
+db.bookings.aggregate([
+    {$match: {booking_status: "completed"}},
+    {$lookup: {
+        from: "vehicles",
+        localField: "vehicle_id",
+        foreignField: "vehicle_id",
+        as: "vehicle"
+    }},
+    {$unwind: "$vehicle"},
+    {$group: {_id: "$vehicle.class", count: {$sum: 1}}},
+    {$sort: {count: -1}}
+])
+
+// Top 3 vehicle make
+db.vehicles.aggregate([
+    {$group: {_id: "$make", count: {$sum: 1}}},
+    {$sort: {count: -1}},
+    {$limit: 3}
+])
