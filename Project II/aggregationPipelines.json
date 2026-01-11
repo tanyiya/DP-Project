@@ -1,4 +1,4 @@
-// Total revenue for completed bookings grouped by payment method
+// Total revenue for paid bookings grouped by payment method
 db.payments.aggregate([
     {$match: {payment_status: "paid"}},
     {$group: {_id: "$method", totalSales: {$sum: "$amount"}}}
