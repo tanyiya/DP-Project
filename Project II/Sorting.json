@@ -1,0 +1,9 @@
+// 4.3 Sorting Demonstration
+// 4.3.1  Sorting Customers’ Contact Information by Name (Ascending)
+db.customers.find({},{_id:0,name:1,email:1,phone_no:1}).sort({name:1})
+
+// 4.3.2 Sorting Paid Payment by Amount (Descending)
+db.payments.find
+  ({payment_status: "paid"},
+   {_id:0,payment_id:1,amount:1,method:1,payment_date:1,payment_status:1})
+  .sort({amount:-1})
