@@ -1,0 +1,10 @@
+db.vehicles.createIndex({vehicle_status: 1})
+
+db.vehicles.createIndex({vehicle_location: 1, vehicle_status: 1})
+
+db.vehicles.find({
+	vehicle_location: "Kuala Lumpur",
+	vehicle_status: "available"
+})
+
+db.vehicles.getIndexes()
